@@ -1,9 +1,9 @@
 
 
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import axios from "axios";
 import "../css/main.css";
-
+import ReactDOM from "react-dom";
 // import "./main.css";
 import { Link } from "react-router-dom";
 
@@ -12,14 +12,15 @@ const Main = (props) => {
   const [inputValue, setInputValue] = useState([]);
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("event:", event);
-    apiSend(event.target.value)
+    
+    console.log("event:", event.target[0].value);
+    apiSend(event.target[0].value)
   };
-  useEffect(() => {
-    const rootElement = document.getElementsById("conversation_body");
-    const elemet = React.createElement("div",{children: inputValue})
-    ReactDOM.render(elemet, rootElement);
-  }, [inputValue]);
+  // useEffect(() => {
+  //   const rootElement = document.getElementById("conversation_body");
+  //   const elemet = React.createElement("div",{children: inputValue})
+  //   ReactDOM.render(elemet, rootElement);
+  // }, [inputValue]);
 
   function apiSend(props) {
     let var_status = "";
@@ -47,20 +48,20 @@ const Main = (props) => {
 
 
   return (
-    <div class = "main">
-    <div class = "main_frame">
-        <div class = "conversation_head">
-            <div class = "head_text">head</div>
+    <div className = "main">
+    <div className = "main_frame">
+        <div className = "conversation_head">
+            <div className = "head_text">head</div>
         </div>
-        <div class = "conversation_body" id = "conversation_body">
-            <div class = "body_text">body</div>
+        <div className = "conversation_body" id = "conversation_body">
+            <div className = "body_text">body</div>
         </div>
-        <div class = "conversation_footer" >
-            <div class = "input_div">
-                <form onsubmit={handleSubmit} class = "input_form">
-                    <input type="text" name="question" class = "question_input" />
+        <div className = "conversation_footer" >
+            <div className = "input_div">
+                <form onSubmit={handleSubmit} className = "input_form">
+                    <input type="text" name="question" className = "question_input" />
                     
-                    <button type = "submit" class = "question_submit_button"  >
+                    <button type = "submit" className = "question_submit_button"  >
                         <span> generate </span>
                     </button>
                 </form>
