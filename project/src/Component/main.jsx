@@ -25,7 +25,7 @@ const Main = (props) => {
   function apiSend(props) {
     let var_status = "";
     console.log("props:", props);
-    const url = "http://49.50.173.20:5000";
+    const url = "http://175.45.205.31:5000";
     let url_set = url + "/ping";
     axios
     //   .get(url_set, {
