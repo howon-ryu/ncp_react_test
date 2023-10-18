@@ -33,12 +33,14 @@ const Main = (props) => {
     //       status: var_status,
     //     },
     //   })
-      .get(url_set)
+      .post(url_set,{
+        data:props
+      })
       .then(function (response) {
         //setdata(response.data);
-        setInputValue(response.data);
+        setInputValue(inputValue.concat(response.data));
 
-        console.log("brands:", response.data);
+        console.log("brands:", response);
         console.log("성공");
       })
       .catch(function (error) {
@@ -55,6 +57,11 @@ const Main = (props) => {
         </div>
         <div className = "conversation_body" id = "conversation_body">
             <div className = "body_text">body</div>
+            {inputValue.map((item, index) => (
+            <div key={index} className="body_text">
+              {item}
+            </div>
+          ))}
         </div>
         <div className = "conversation_footer" >
             <div className = "input_div">
