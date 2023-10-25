@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Component/main";
+import Translation from "./Component/translation";
 function App() {
   return (
     <div className="App">
@@ -23,6 +24,7 @@ function App() {
       
         <Routes>
           <Route exact path="/main" element={<Main/>} />
+          <Route exact path="/translation" element={<Translation/>} />
         </Routes>
       </BrowserRouter>
     </div>
